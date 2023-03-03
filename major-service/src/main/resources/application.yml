@@ -29,7 +29,7 @@ spring:
     database: mysql
     show-sql: true
     hibernate:
-      ddl-auto: update
+      ddl-auto: create-drop
 #授权
 sa-token:
   token-name: jToken

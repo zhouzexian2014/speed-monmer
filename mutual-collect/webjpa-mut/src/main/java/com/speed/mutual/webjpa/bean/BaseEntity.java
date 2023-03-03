@@ -30,34 +30,41 @@ import java.time.LocalDateTime;
 //@Table(name = "test")
 //@org.hibernate.annotations.Table(appliesTo = "test",comment="我会有表注释的哟...")
 public class BaseEntity extends IdEntity {
+
     @CreatedDate
-    @Column
     @ExcelProperty(value = "创建时间",converter = LocalDateTimeConverter.class)
     @JsonFormat(locale = "zh", pattern = BaseConstant.ENTITY_DATE_FORMAT)
+    @Column(nullable = true,columnDefinition = "datetime comment '创建时间'")
     @ApiModelProperty(value = "创建时间")
     protected LocalDateTime createTime;
-    @CreatedBy
-    @Column(length = 64)
-    @ApiModelProperty(value = "创建人id")
-    protected String createBy;
+
     @LastModifiedDate
     @ExcelProperty(value = "更新时间",converter = LocalDateTimeConverter.class)
-    //@JsonFormat(locale = "zh", timezone = "GMT+8", pattern = BaseConstant.ENTITY_DATE_FORMAT)
     @JsonFormat(locale = "zh", pattern = BaseConstant.ENTITY_DATE_FORMAT)
+    @Column(nullable = true,columnDefinition = "datetime comment '更新时间'")
     @ApiModelProperty(value = "更新时间")
     protected LocalDateTime updateTime;
-    @LastModifiedBy
-    @Column(length = 64)
+
+    @CreatedBy
+    @Column(nullable = true,columnDefinition = "varchar(64) comment '创建人ID'")
+    @ApiModelProperty(value = "创建人ID")
+    protected String createBy;
+
     @ExcelIgnore
-    @ApiModelProperty(value = "更新人id")
+    @LastModifiedBy
+    @Column(nullable = true,columnDefinition = "varchar(64) comment '更新人ID'")
+    @ApiModelProperty(value = "更新人ID")
     protected String updateBy;
+
     @Version
+    @ExcelIgnore
     @ApiModelProperty(value = "版本号")
     @Column(nullable = true,columnDefinition = "int(11) comment '版本号'")
     private int versionCount;
 
-    @ApiModelProperty(value = "租户id")
-    @Column(nullable = true,columnDefinition = "varchar(46) comment '租户id'")
+    @ExcelIgnore
+    @ApiModelProperty(value = "租户ID")
+    @Column(nullable = true,columnDefinition = "varchar(64) comment '租户ID'")
     protected String tenantId;
 
 }

@@ -5,6 +5,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 
+import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
@@ -19,6 +20,7 @@ import java.io.Serializable;
 public class IdEntity implements Serializable {
     protected static final long serialVersionUID=1L;
     @Id
+    @Column(nullable = false,columnDefinition = "varchar(64) comment '主键'")
     @GeneratedValue(generator = "idGengerator")
     @GenericGenerator(name = "idGengerator", strategy = "com.speed.mutual.webjpa.service.IdGengerator")
     @ExcelProperty(value = "主键")

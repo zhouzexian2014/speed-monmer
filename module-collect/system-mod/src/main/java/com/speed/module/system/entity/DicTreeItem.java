@@ -12,34 +12,35 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Data
-@Entity
-@Table(name = "dic_tree_item", schema = "monomer_db", catalog = "")
 @ApiModel(value="字典项")
 @ColumnWidth(25)
+@Entity
+@Table(name = "dic_tree_item")
+@org.hibernate.annotations.Table(appliesTo = "dic_tree_item",comment="字典项表")
 public class DicTreeItem extends BaseEntity {
-    @ApiModelProperty(value = "分类id")
-    @Basic
-    @Column(name = "tree_id", nullable = false, length = 64)
+
+    @Column(nullable = false,columnDefinition = "varchar(64) comment '分类ID'")
+    @ApiModelProperty(value = "分类ID")
     private String treeId;
+
+    @Column(nullable = false,columnDefinition = "varchar(64) comment '项名称'")
     @ApiModelProperty(value = "项名称")
-    @Basic
-    @Column(name = "item_name", nullable = false, length = 64)
     private String itemName;
+
+    @Column(nullable = false,columnDefinition = "varchar(64) comment '项编号'")
     @ApiModelProperty(value = "项编号")
-    @Basic
-    @Column(name = "item_no",nullable = false, length = 64)
     private String itemNo;
+
+    @Column(columnDefinition = "varchar(64) comment '扩展1'")
     @ApiModelProperty(value = "扩展1")
-    @Basic
-    @Column(name = "extend1", length = 64)
     private String extend1;
+
     @ApiModelProperty(value = "扩展2")
-    @Basic
-    @Column(name = "extend2", length = 64)
+    @Column(columnDefinition = "varchar(64) comment '扩展2'")
     private String extend2;
+
     @ApiModelProperty(value = "扩展3")
-    @Basic
-    @Column(name = "extend3", length = 64)
+    @Column(columnDefinition = "varchar(64) comment '扩展3'")
     private String extend3;
 
 }
