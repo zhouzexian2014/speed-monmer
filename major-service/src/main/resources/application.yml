@@ -1,0 +1,43 @@
+monomer:
+  file-path: /Users/joey/work_space/temp/file_dir
+server:
+  port: 8086
+  tomcat:
+    max-http-form-post-size: -1
+#日志级别配置
+logging:
+  level:
+    root: error
+    com.speedbus.monomer: error
+spring:
+  application:
+    name: monomer
+  servlet:
+    multipart:
+      max-file-size: -1
+      max-request-size: -1
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/monomer_db?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true&nullCatalogMeansCurrent=true
+    username: root
+    password: root
+    # 连接池初始化大小，最小，最大
+    initialSize: 2
+    minIdle: 2
+    maxActive: 100
+  jpa:
+    database: mysql
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+#授权
+sa-token:
+  token-name: jToken
+  is-log: true
+  timeout: 2592000
+flowable:
+  #关闭定时任务JOB
+  async-executor-activate: false
+  database-schema-update: false
+  process:
+    definition-cache-limit: 100
