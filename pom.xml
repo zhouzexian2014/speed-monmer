@@ -22,6 +22,8 @@
         <java.version>1.8</java.version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+        <spring-boot>2.5.10</spring-boot>
+        <java-home>C:/Program Files/Java/jdk1.8.0_281</java-home>
     </properties>
 
     <dependencies>
@@ -74,11 +76,25 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
-                <version>2.5.10</version>
+                <version>${spring-boot}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <verbose>true</verbose>
+                    <fork>true</fork>
+                    <executable>${java-home}/bin/javac</executable>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
