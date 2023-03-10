@@ -9,6 +9,7 @@ import lombok.Data;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Index;
 import javax.persistence.Table;
 
 /**
@@ -24,7 +25,11 @@ import javax.persistence.Table;
 @ApiModel(value="菜单信息")
 @ColumnWidth(25)
 @Entity
-@Table(name = "menu")
+@Table(name = "menu",
+        indexes = {
+            @Index(name = "idx_menu_key",columnList = "menuKey",unique = true)
+        }
+)
 @org.hibernate.annotations.Table(appliesTo = "menu",comment="菜单信息表")
 public class Menu extends BaseEntity {
 
@@ -37,10 +42,10 @@ public class Menu extends BaseEntity {
     @ApiModelProperty(value = "菜单名称")
     private String menuName;
 
-    @Column(columnDefinition = "varchar(64) comment '编号'")
-    @ExcelProperty(value = "编号")
-    @ApiModelProperty(value = "编号")
-    private String menuNo;
+    @Column(columnDefinition = "varchar(64) comment '菜单key'")
+    @ExcelProperty(value = "菜单key")
+    @ApiModelProperty(value = "菜单key")
+    private String menuKey;
 
     @Column(columnDefinition = "varchar(128) comment '扩展项1'")
     @ApiModelProperty(value = "扩展项1")
@@ -53,6 +58,11 @@ public class Menu extends BaseEntity {
     @Column(columnDefinition = "varchar(128) comment '扩展项3'")
     @ApiModelProperty(value = "扩展项3")
     private String extend3;
+
+    @Column(columnDefinition = "int(11) comment '排序编号'")
+    @ExcelProperty(value = "排序编号")
+    @ApiModelProperty(value = "排序编号")
+    private Integer orderNo;
 
 
 }

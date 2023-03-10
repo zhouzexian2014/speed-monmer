@@ -1,21 +1,22 @@
 package com.speed.module.system.entity;
 
+import com.alibaba.excel.annotation.ExcelProperty;
 import com.alibaba.excel.annotation.write.style.ColumnWidth;
 import com.speed.mutual.webjpa.bean.BaseEntity;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Data
 @ApiModel(value="字典项")
 @ColumnWidth(25)
 @Entity
-@Table(name = "dic_tree_item")
+@Table(name = "dic_tree_item",
+        indexes = {
+                @Index(name = "idx_DicTreeItem_idkey",columnList = "treeId,itemKey",unique = true)
+        })
 @org.hibernate.annotations.Table(appliesTo = "dic_tree_item",comment="字典项表")
 public class DicTreeItem extends BaseEntity {
 
@@ -27,9 +28,9 @@ public class DicTreeItem extends BaseEntity {
     @ApiModelProperty(value = "项名称")
     private String itemName;
 
-    @Column(nullable = false,columnDefinition = "varchar(64) comment '项编号'")
-    @ApiModelProperty(value = "项编号")
-    private String itemNo;
+    @Column(nullable = false,columnDefinition = "varchar(64) comment '项key'")
+    @ApiModelProperty(value = "项key")
+    private String itemKey;
 
     @Column(columnDefinition = "varchar(64) comment '扩展1'")
     @ApiModelProperty(value = "扩展1")
@@ -42,5 +43,10 @@ public class DicTreeItem extends BaseEntity {
     @ApiModelProperty(value = "扩展3")
     @Column(columnDefinition = "varchar(64) comment '扩展3'")
     private String extend3;
+
+    @Column(columnDefinition = "int(11) comment '排序编号'")
+    @ExcelProperty(value = "排序编号")
+    @ApiModelProperty(value = "排序编号")
+    private Integer orderNo;
 
 }

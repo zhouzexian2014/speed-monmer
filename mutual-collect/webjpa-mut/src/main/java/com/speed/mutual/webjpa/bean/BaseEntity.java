@@ -60,7 +60,7 @@ public class BaseEntity extends IdEntity {
     @ExcelIgnore
     @ApiModelProperty(value = "版本号")
     @Column(nullable = true,columnDefinition = "int(11) comment '版本号'")
-    private int versionCount;
+    private int versionNo;
 
     @ExcelIgnore
     @ApiModelProperty(value = "租户ID")
