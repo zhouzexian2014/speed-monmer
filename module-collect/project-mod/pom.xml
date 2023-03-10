@@ -3,32 +3,18 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>speed-monomer</artifactId>
+        <artifactId>module-collect</artifactId>
         <groupId>com.speed.monomer</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>module-collect</artifactId>
-    <packaging>pom</packaging>
-    <description>模块集合-自由创建多个功能模块jar</description>
 
-    <modules>
-        <module>system-mod</module>
-        <module>organize-mod</module>
-        <module>project-mod</module>
-    </modules>
+    <artifactId>project-mod</artifactId>
+    <packaging>jar</packaging>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
     </properties>
-
-    <dependencies>
-        <dependency>
-            <groupId>com.speed.monomer</groupId>
-            <artifactId>webjpa-mut</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-    </dependencies>
 
 </project>
