@@ -31,7 +31,7 @@ import javax.persistence.Table;
                 @Index(name = "idx_Account_psnId",columnList = "personId",unique = true)
         }
 )
-@org.hibernate.annotations.Table(appliesTo = "person",comment="账号信息")
+@org.hibernate.annotations.Table(appliesTo = "account",comment="账号信息")
 public class Account extends BaseEntity {
 
     @Column(nullable = false,columnDefinition = "varchar(64) comment '用户id'")

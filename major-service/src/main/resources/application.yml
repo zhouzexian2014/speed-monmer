@@ -20,7 +20,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://127.0.0.1:3306/monomer_db?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true&nullCatalogMeansCurrent=true
     username: root
-    password: root
+    password: 123456
     # 连接池初始化大小，最小，最大
     initialSize: 2
     minIdle: 2
@@ -29,7 +29,7 @@ spring:
     database: mysql
     show-sql: true
     hibernate:
-      ddl-auto: update
+      ddl-auto: create-drop
 #授权
 sa-token:
   token-name: jToken

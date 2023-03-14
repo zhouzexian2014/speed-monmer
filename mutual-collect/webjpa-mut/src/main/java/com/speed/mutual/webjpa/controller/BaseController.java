@@ -4,6 +4,7 @@ import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONUtil;
 import com.alibaba.excel.EasyExcel;
 import com.github.xiaoymin.knife4j.annotations.ApiOperationSupport;
+import com.speed.mutual.common.annotation.IgnoreLog;
 import com.speed.mutual.webjpa.bean.IdEntity;
 import com.speed.mutual.common.constant.BaseConstant;
 import com.speed.mutual.common.dto.PageDTO;
@@ -146,6 +147,7 @@ public abstract class BaseController<T extends IdEntity> {
         }
     }
 
+    @IgnoreLog
     @ApiOperationSupport(order = 99906)
     @ApiOperation(value = "元数据查询")
     @GetMapping("/metadata")
