@@ -22,6 +22,14 @@ public class ResponseUtil {
         System.out.println(arr[2]);
     }
 
+    public static ResponseDTO ok(Object data,String msg){
+        ResponseDTO dto = new ResponseDTO();
+        dto.setSuccess(true);
+        dto.setCode(200);
+        dto.setData(data);
+        dto.setMsg(msg);
+        return dto;
+    }
     /**
      * 成功
      * @param data

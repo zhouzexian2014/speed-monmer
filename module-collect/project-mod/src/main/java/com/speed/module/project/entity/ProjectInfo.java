@@ -33,19 +33,19 @@ public class ProjectInfo extends BaseEntity {
     @ApiModelProperty(value = "项目名称")
     private String projectName;
 
-    @Column(nullable = false,columnDefinition = "varchar(64) DEFAULT '' comment '项目编号'")
+    @Column(nullable = false,columnDefinition = "varchar(64) default '' comment '项目编号'")
     @ApiModelProperty(value = "项目编号")
     private String projectNo;
 
-    @Column(columnDefinition = "varchar(1024) DEFAULT '' comment '项目描述'")
+    @Column(columnDefinition = "varchar(1024) default '' comment '项目描述'")
     @ApiModelProperty(value = "项目描述")
     private String projectDesc;
 
-    @Column(nullable = true,columnDefinition = "varchar(64) DEFAULT '' comment '项目负责人'")
+    @Column(columnDefinition = "varchar(64) default '' comment '项目负责人'")
     @ApiModelProperty(value = "项目负责人")
     private String projectLeader;
 
-    @Column(nullable = true,columnDefinition = "int(3) DEFAULT 0 comment '项目进度'")
+    @Column(columnDefinition = "int(3) default 0 comment '项目进度'")
     @ApiModelProperty(value = "项目进度")
     private Integer projectProgress;
 
@@ -73,11 +73,11 @@ public class ProjectInfo extends BaseEntity {
     @ApiModelProperty(value = "实际结束时间")
     protected LocalDateTime actualEndTime;
 
-    @Column(nullable = false,columnDefinition = "int(2) DEFAULT 0 comment '项目状态'")
+    @Column(nullable = false,columnDefinition = "int(2) default 0 comment '项目状态'")
     @ApiModelProperty(value = "项目状态")
     private Integer projectStatus;
 
-    @Column(nullable = false,columnDefinition = "bit(1) DEFAULT b'0' comment '是否模板'")
+    @Column(nullable = false,columnDefinition = "bit(1) default b'0' comment '是否模板'")
     @ApiModelProperty(value = "是否模板")
     private boolean hadTemp;
 }

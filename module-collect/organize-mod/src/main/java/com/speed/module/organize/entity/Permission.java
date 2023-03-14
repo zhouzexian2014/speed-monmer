@@ -38,7 +38,7 @@ public class Permission extends BaseEntity {
     @ApiModelProperty(value = "权限Key")
     private String permissionKey;
 
-    @Column(nullable = false,columnDefinition = "int(2) DEFAULT 0 comment '权限类型'")
+    @Column(nullable = false,columnDefinition = "int(2) default 0 comment '权限类型'")
     @ApiModelProperty(value = "权限类型")
     private Integer permissionType;
 

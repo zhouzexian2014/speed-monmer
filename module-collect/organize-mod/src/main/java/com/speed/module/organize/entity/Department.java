@@ -47,20 +47,11 @@ public class Department extends BaseEntity {
     private String departmentNo;
 
     @ApiModelProperty(value = "备注")
-    @Column(columnDefinition = "varchar(128) DEFAULT '' comment '备注'")
+    @Column(columnDefinition = "varchar(128) default '' comment '备注'")
     private String remarks;
 
-    @Column(nullable = false,columnDefinition = "int(2) DEFAULT 0 comment '部门类型'")
+    @Column(nullable = false,columnDefinition = "int(2) default 0 comment '部门类型'")
     @ApiModelProperty(value = "部门类型")
     private Integer deptType;
-
-    @Column(columnDefinition = "int(11) DEFAULT 1 comment '排序编号'")
-    @ExcelProperty(value = "排序编号")
-    @ApiModelProperty(value = "排序编号")
-    private Integer orderNo;
-
-    @Column(nullable = false,columnDefinition = "bit(1) DEFAULT b'0' comment '是否禁用'")
-    @ApiModelProperty(value = "是否禁用")
-    private boolean hadCancel;
 
 }

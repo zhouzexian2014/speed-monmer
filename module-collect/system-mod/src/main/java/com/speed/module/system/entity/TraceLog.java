@@ -29,7 +29,7 @@ public class TraceLog extends IdEntity {
     @ApiModelProperty(value = "跟踪ID")
     private String traceId;
 
-    @Column(columnDefinition = "bit(1) DEFAULT b'1' comment '是否成功'")
+    @Column(columnDefinition = "bit(1) default b'1' comment '是否成功'")
     @ApiModelProperty(value = "是否成功")
     private Boolean success=true;
 
@@ -53,11 +53,11 @@ public class TraceLog extends IdEntity {
     @ApiModelProperty(value = "参数")
     private String paramContent;
 
-    @Column(columnDefinition = "varchar(2048) DEFAULT '' comment '结果'")
+    @Column(columnDefinition = "varchar(2048) default '' comment '结果'")
     @ApiModelProperty(value = "结果")
     private String resultContent;
 
-    @Column(columnDefinition = "varchar(2048) DEFAULT '' comment '异常'")
+    @Column(columnDefinition = "varchar(2048) default '' comment '异常'")
     @ApiModelProperty(value = "异常")
     private String exception;
 
@@ -65,7 +65,7 @@ public class TraceLog extends IdEntity {
     @ApiModelProperty(value = "开始时间")
     private LocalDateTime startTime;
 
-    @Column(columnDefinition = "int(11) DEFAULT 0 comment '持续时长'")
+    @Column(columnDefinition = "int(11) default 0 comment '持续时长'")
     @ApiModelProperty(value = "持续时长")
     private Long duration;
 

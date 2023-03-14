@@ -22,4 +22,8 @@ public class PermissionController extends BaseController<Permission> {
     public BaseRepository<Permission, String> getService() {
         return permissionDao;
     }
+
+
+
+
 }

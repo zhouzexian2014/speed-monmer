@@ -1,5 +1,6 @@
 package com.speed.module.organize.conf;
 
+import cn.dev33.satoken.stp.StpUtil;
 import org.springframework.data.domain.AuditorAware;
 import org.springframework.stereotype.Component;
 
@@ -10,8 +11,10 @@ import java.util.Optional;
  */
 @Component
 public class JpaUserAuditor implements AuditorAware<String> {
+
     @Override
     public Optional<String> getCurrentAuditor() {
-        return Optional.of("狗长老");
+        String loginId = StpUtil.getLoginId("狗长老");
+        return Optional.of(loginId);
     }
 }

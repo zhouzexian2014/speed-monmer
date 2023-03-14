@@ -8,6 +8,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * <p>
@@ -40,16 +41,7 @@ public class Company extends BaseEntity {
     private String companyNo;
 
     @ApiModelProperty(value = "备注")
-    @Column(columnDefinition = "varchar(128) DEFAULT '' comment '备注'")
+    @Column(columnDefinition = "varchar(128) default '' comment '备注'")
     private String remarks;
-
-    @Column(columnDefinition = "int(11) DEFAULT 1 comment '排序编号'")
-    @ExcelProperty(value = "排序编号")
-    @ApiModelProperty(value = "排序编号")
-    private Integer orderNo;
-
-    @Column(nullable = false,columnDefinition = "bit(1) DEFAULT b'0' comment '是否禁用'")
-    @ApiModelProperty(value = "是否禁用")
-    private boolean hadCancel;
 
 }

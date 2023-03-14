@@ -24,7 +24,7 @@ import javax.persistence.Table;
 @org.hibernate.annotations.Table(appliesTo = "dic_tree",comment="字典分类表")
 public class DicTree extends BaseEntity {
 
-    @Column(nullable = false,columnDefinition = "varchar(64) DEFAULT '0' comment '父级ID'")
+    @Column(nullable = false,columnDefinition = "varchar(64) default '0' comment '父级ID'")
     @ApiModelProperty(value = "父级ID")
     private String pid;
 
@@ -37,10 +37,10 @@ public class DicTree extends BaseEntity {
     private String treeKey;
 
     @ApiModelProperty(value = "备注")
-    @Column(columnDefinition = "varchar(128) DEFAULT '' comment '备注'")
+    @Column(columnDefinition = "varchar(128) default '' comment '备注'")
     private String remarks;
 
-    @Column(columnDefinition = "int(11) DEFAULT 1 comment '排序编号'")
+    @Column(columnDefinition = "int(11) default 1 comment '排序编号'")
     @ExcelProperty(value = "排序编号")
     @ApiModelProperty(value = "排序编号")
     private Integer orderNo;

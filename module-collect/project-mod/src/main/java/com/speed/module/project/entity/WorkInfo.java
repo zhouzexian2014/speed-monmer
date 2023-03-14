@@ -36,7 +36,7 @@ public class WorkInfo extends BaseEntity {
     @ApiModelProperty(value = "任务ID")
     private String taskId;
 
-    @Column(nullable = false,columnDefinition = "varchar(1024) DEFAULT '' comment '工序内容'")
+    @Column(nullable = false,columnDefinition = "varchar(1024) default '' comment '工序内容'")
     @ApiModelProperty(value = "工序内容")
     private String workContent;
 
@@ -46,7 +46,7 @@ public class WorkInfo extends BaseEntity {
     @ApiModelProperty(value = "完成时间")
     protected LocalDateTime finishTime;
 
-    @Column(nullable = false,columnDefinition = "int(2) DEFAULT 0 comment '工序状态'")
+    @Column(nullable = false,columnDefinition = "int(2) default 0 comment '工序状态'")
     @ApiModelProperty(value = "工序状态")
     private Integer workStatus;
 }
