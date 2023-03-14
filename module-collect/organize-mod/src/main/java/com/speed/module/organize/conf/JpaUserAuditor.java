@@ -1,4 +1,4 @@
-package com.speed.conf;
+package com.speed.module.organize.conf;
 
 import org.springframework.data.domain.AuditorAware;
 import org.springframework.stereotype.Component;

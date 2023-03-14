@@ -1,4 +1,4 @@
-package com.speed.conf;
+package com.speed.module.organize.conf;
 
 import cn.dev33.satoken.stp.StpInterface;
 import org.springframework.stereotype.Component;
