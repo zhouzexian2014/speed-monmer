@@ -23,12 +23,21 @@ import java.time.LocalDateTime;
  * Jpa实体基类-创建信息-更新信息
  * @author joey
  */
+//@Entity
+//@Table(name = "表名",
+//      indexes = {
+//                @Index(name = "索引",columnList = "workId,memberId",unique = true)
+//        })
+//@org.hibernate.annotations.Table(appliesTo = "test",comment="我会有表注释的哟...")
+//@Column(nullable = true,columnDefinition = "varchar(64)  comment '字符串'")
+//@Column(nullable = true,columnDefinition = "varchar(64) DEFAULT '' comment '字符串'")
+//@Column(nullable = true,columnDefinition = "datetime comment '时间'")
+//@Column(nullable = false,columnDefinition = "bit(1) DEFAULT b'0' comment '布尔'")
+//@Column(nullable = true,columnDefinition = "int(11) DEFAULT 0 comment '整数'")
+//@Column(nullable = true,columnDefinition = "double(11,2) DEFAULT 0.0 comment '小数'")
+@Data
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
-@Data
-//@Entity
-//@Table(name = "test")
-//@org.hibernate.annotations.Table(appliesTo = "test",comment="我会有表注释的哟...")
 public class BaseEntity extends IdEntity {
 
     @CreatedDate
@@ -46,13 +55,13 @@ public class BaseEntity extends IdEntity {
     protected LocalDateTime updateTime;
 
     @CreatedBy
-    @Column(nullable = true,columnDefinition = "varchar(64) comment '创建人ID'")
+    @Column(nullable = true,columnDefinition = "varchar(64) DEFAULT '' comment '创建人ID'")
     @ApiModelProperty(value = "创建人ID")
     protected String createBy;
 
     @ExcelIgnore
     @LastModifiedBy
-    @Column(nullable = true,columnDefinition = "varchar(64) comment '更新人ID'")
+    @Column(nullable = true,columnDefinition = "varchar(64) DEFAULT '' comment '更新人ID'")
     @ApiModelProperty(value = "更新人ID")
     protected String updateBy;
 
@@ -64,7 +73,7 @@ public class BaseEntity extends IdEntity {
 
     @ExcelIgnore
     @ApiModelProperty(value = "租户ID")
-    @Column(nullable = true,columnDefinition = "varchar(64) comment '租户ID'")
+    @Column(nullable = true,columnDefinition = "varchar(64) DEFAULT '' comment '租户ID'")
     protected String tenantId;
 
 }

@@ -32,11 +32,11 @@ public class TaskInfo extends BaseEntity {
     @ApiModelProperty(value = "项目ID")
     private String projectId;
 
-    @Column(nullable = false,columnDefinition = "varchar(64) comment '父级ID'")
+    @Column(nullable = false,columnDefinition = "varchar(64) DEFAULT '0' comment '父级ID'")
     @ApiModelProperty(value = "父级ID")
     private String pid;
 
-    @Column(nullable = false,columnDefinition = "varchar(128) comment '任务编号'")
+    @Column(nullable = false,columnDefinition = "varchar(128) DEFAULT '' comment '任务编号'")
     @ApiModelProperty(value = "任务编号")
     private String taskNo;
 
@@ -48,7 +48,7 @@ public class TaskInfo extends BaseEntity {
     @ApiModelProperty(value = "任务内容")
     private String taskContent;
 
-    @Column(nullable = true,columnDefinition = "int(3) comment '任务进度'")
+    @Column(nullable = true,columnDefinition = "int(3) DEFAULT 0 comment '任务进度'")
     @ApiModelProperty(value = "任务进度")
     private Integer taskProgress;
 
@@ -76,7 +76,7 @@ public class TaskInfo extends BaseEntity {
     @ApiModelProperty(value = "实际结束时间")
     protected LocalDateTime actualEndTime;
 
-    @Column(nullable = false,columnDefinition = "int(2) comment '任务状态'")
+    @Column(nullable = false,columnDefinition = "int(2) DEFAULT 0 comment '任务状态'")
     @ApiModelProperty(value = "任务状态")
     private Integer taskStatus;
 }

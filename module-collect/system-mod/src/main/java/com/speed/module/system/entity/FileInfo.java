@@ -30,7 +30,7 @@ public class FileInfo extends BaseEntity {
     @ApiModelProperty(value = "文件类型")
     private String contentType;
 
-    @Column(columnDefinition = "varchar(64) comment '扩展名'")
+    @Column(columnDefinition = "varchar(64) DEFAULT '' comment '扩展名'")
     @ApiModelProperty(value = "扩展名")
     private String extension;
 
@@ -42,7 +42,7 @@ public class FileInfo extends BaseEntity {
     @ApiModelProperty(value = "文件路径")
     private String filePath;
 
-    @Column(columnDefinition = "int(11) comment '文件大小'")
+    @Column(columnDefinition = "int(11) DEFAULT 0 comment '文件大小'")
     @ApiModelProperty(value = "文件大小")
     private Long length;
 
@@ -50,11 +50,11 @@ public class FileInfo extends BaseEntity {
     @ApiModelProperty(value = "关联标识")
     private String relationKey;
 
-    @Column(columnDefinition = "int(2) comment '关联类型'")
+    @Column(columnDefinition = "int(2) DEFAULT 0  comment '关联类型'")
     @ApiModelProperty(value = "关联类型")
     private Integer relationType;
 
-    @Column(columnDefinition = "bit(1) comment '是否需要授权'")
+    @Column(columnDefinition = "bit(1) DEFAULT b'0' comment '是否需要授权'")
     @ApiModelProperty(value = "是否需要授权")
     private Boolean hadAuthorization;
 

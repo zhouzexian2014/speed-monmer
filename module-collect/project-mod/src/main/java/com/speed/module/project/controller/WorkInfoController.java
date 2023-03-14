@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 
-@Api(tags = "工序")
+@Api(tags = "工序管理")
 @Slf4j
 @RestController
 @RequestMapping("/prj/work")

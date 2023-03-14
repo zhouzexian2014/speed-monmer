@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 
-@Api(tags = "项目")
+@Api(tags = "项目管理")
 @Slf4j
 @RestController
 @RequestMapping("/prj/project")

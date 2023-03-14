@@ -18,12 +18,13 @@ import javax.persistence.Table;
 @ColumnWidth(25)
 @Table(name = "dic_tree",
         indexes = {
-                @Index(name = "idx_DicTree_key",columnList = "treeKey",unique = true)
+                @Index(name = "idx_DicTree_key",columnList = "treeKey",unique = true),
+                @Index(name = "idx_DicTree_name",columnList = "treeName",unique = true)
         })
 @org.hibernate.annotations.Table(appliesTo = "dic_tree",comment="字典分类表")
 public class DicTree extends BaseEntity {
 
-    @Column(nullable = false,columnDefinition = "varchar(64) comment '父级ID'")
+    @Column(nullable = false,columnDefinition = "varchar(64) DEFAULT '0' comment '父级ID'")
     @ApiModelProperty(value = "父级ID")
     private String pid;
 
@@ -35,7 +36,11 @@ public class DicTree extends BaseEntity {
     @ApiModelProperty(value = "分类key")
     private String treeKey;
 
-    @Column(columnDefinition = "int(11) comment '排序编号'")
+    @ApiModelProperty(value = "备注")
+    @Column(columnDefinition = "varchar(128) DEFAULT '' comment '备注'")
+    private String remarks;
+
+    @Column(columnDefinition = "int(11) DEFAULT 1 comment '排序编号'")
     @ExcelProperty(value = "排序编号")
     @ApiModelProperty(value = "排序编号")
     private Integer orderNo;

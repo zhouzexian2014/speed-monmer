@@ -15,7 +15,8 @@ import javax.persistence.*;
 @Entity
 @Table(name = "dic_tree_item",
         indexes = {
-                @Index(name = "idx_DicTreeItem_idkey",columnList = "treeId,itemKey",unique = true)
+                @Index(name = "idx_DicTreeItem_idKey",columnList = "treeId,itemKey",unique = true),
+                @Index(name = "idx_DicTreeItem_idName",columnList = "treeId,itemName",unique = true)
         })
 @org.hibernate.annotations.Table(appliesTo = "dic_tree_item",comment="字典项表")
 public class DicTreeItem extends BaseEntity {
@@ -32,21 +33,25 @@ public class DicTreeItem extends BaseEntity {
     @ApiModelProperty(value = "项key")
     private String itemKey;
 
-    @Column(columnDefinition = "varchar(64) comment '扩展1'")
+    @Column(columnDefinition = "varchar(128) DEFAULT '' comment '扩展1'")
     @ApiModelProperty(value = "扩展1")
     private String extend1;
 
     @ApiModelProperty(value = "扩展2")
-    @Column(columnDefinition = "varchar(64) comment '扩展2'")
+    @Column(columnDefinition = "varchar(64) DEFAULT '' comment '扩展2'")
     private String extend2;
 
     @ApiModelProperty(value = "扩展3")
-    @Column(columnDefinition = "varchar(64) comment '扩展3'")
+    @Column(columnDefinition = "varchar(64) DEFAULT '' comment '扩展3'")
     private String extend3;
 
-    @Column(columnDefinition = "int(11) comment '排序编号'")
+    @Column(columnDefinition = "int(11) DEFAULT 1 comment '排序编号'")
     @ExcelProperty(value = "排序编号")
     @ApiModelProperty(value = "排序编号")
     private Integer orderNo;
+
+    @Column(nullable = false,columnDefinition = "bit(1) DEFAULT b'0' comment '是否禁用'")
+    @ApiModelProperty(value = "是否禁用")
+    private boolean hadCancel;
 
 }

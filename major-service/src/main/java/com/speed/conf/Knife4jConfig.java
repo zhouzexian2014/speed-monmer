@@ -28,13 +28,17 @@ public class Knife4jConfig {
     public Docket apiSys() {
         return buildDocket("系统配置","/sys/**");
     }
+//    @Bean
+//    public Docket apiAuth() {
+//        return buildDocket("授权管理","/auth/**");
+//    }
+//    @Bean
+//    public Docket apiFlowable() {
+//        return buildDocket("流程管理","/flowable/**");
+//    }
     @Bean
-    public Docket apiAuth() {
-        return buildDocket("授权管理","/auth/**");
-    }
-    @Bean
-    public Docket apiFlowable() {
-        return buildDocket("流程管理","/flowable/**");
+    public Docket apiPrj() {
+        return buildDocket("项目管理","/prj/**");
     }
 
 
